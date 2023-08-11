@@ -84,6 +84,15 @@ public class Task {
         this.finishDate = finishDate;
     }
 
-    
-    
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Task task = (Task) object;
+        return java.util.Objects.equals(id, task.id) && java.util.Objects.equals(title, task.title) && java.util.Objects.equals(description, task.description) && java.util.Objects.equals(createDate, task.createDate) && java.util.Objects.equals(finishDate, task.finishDate);
+    }
+
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id, title, description, createDate, finishDate);
+    }
 }
